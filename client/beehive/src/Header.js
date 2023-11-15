@@ -1,7 +1,11 @@
 import {Link} from "react-router-dom"
+import { UserContext } from "./UserContext";
 
 export default function Header(){
-    return(
+  const {setUserInfo} = UserContext(UserContext);
+  const username = userInfo?.username;
+  
+  return(
     <header>
     <Link to="/" className="logo">BeeHive</Link>
     <nav>
