@@ -6,7 +6,7 @@ export default function RegisterPage(){
     
    async function register(ev){
         ev.preventDefault();
-        await fetch('https://localhost:4000/register', {
+        await fetch('http://localhost:4000/register', { //it originally said https here, once i changed it to http it worked:)))
             method: 'POST',
             body: JSON.stringify({username, password}),
             headers: {'Content-Type': 'application/json'},
