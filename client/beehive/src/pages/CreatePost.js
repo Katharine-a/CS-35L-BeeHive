@@ -1,5 +1,6 @@
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
+import { Navigate } from "react-router-dom";
 import { useState } from "react/cjs/react.production.min";
 
 const modules = {
@@ -19,12 +20,12 @@ const formats = [
 ];
 
 export default function CreatePost() {
-    const [title, setTitle] = userState('');
+    const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
     const [redirect, setRedirect] = useState(false);
-    async function createNewPost(){
+    async function createNewPost(ev){
         const data = new FormData();
         data.set('title', title);
         data.set('summary', summary);
