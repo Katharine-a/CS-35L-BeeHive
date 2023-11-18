@@ -7,13 +7,14 @@ also do npm install cors
 
 const express = require('express');
 const cors = require('cors');
-const app = express();
 const mongoose = require("mongoose");
 const User = require('./models/User');
 const bcrypt = require('bcryptjs'); //for hashing/encrypting passwords
+const app = express();
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser'); 
-const { response } = require('express');
+
+// const { response } = require('express');
 
 const salt = bcrypt.genSaltSync(10); //for hashing/encrypting passowrds
 const secret = 'anphhgrue795927ncuepq57839badjjiown'; //for webtokens
@@ -76,7 +77,7 @@ app.get('/profile', (request,response) => {
 
 app.post('/logout', (request,response) => {
     response.cookie('token', '').json('ok');
-})
+});
 
 app.listen(4000); //on port 4000
 //npm install mongodb in api
