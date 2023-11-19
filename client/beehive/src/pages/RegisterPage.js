@@ -6,14 +6,20 @@ export default function RegisterPage(){
     
    async function register(ev){
         ev.preventDefault();
-        await fetch('http://localhost:4000/register', { //it originally said https here, once i changed it to http it worked:)))
+        const Response = await fetch('http://localhost:4000/register', { //it originally said https here, once i changed it to http it worked:)))
             method: 'POST',
             body: JSON.stringify({username, password}),
             headers: {'Content-Type': 'application/json'},
 
-        })
-    } 
-    
+        });
+        //console.log(Response); this was part of error checking
+        if (Response.status === 200) { //default is 200
+            alert('registration successful');
+        } else {
+            alert('registration failed');
+        }
+} 
+   //const bcrypt = require('bcryptjs'); 
     return(
         <form className="register" onSubmit={register}>
         <h1>Register</h1>
