@@ -5,7 +5,7 @@ export default function RegisterPage(){
     const [password, setPassword] = useState('');
     
    async function register(ev){
-        ev.preventDefault();
+        ev.preventDefault(); //won't redirect from page
         const Response = await fetch('http://localhost:4000/register', { //it originally said https here, once i changed it to http it worked:)))
             method: 'POST',
             body: JSON.stringify({username, password}),
