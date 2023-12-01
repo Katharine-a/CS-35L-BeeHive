@@ -32,7 +32,9 @@ app.use(cookieParser());
 //need to connect to mongo database
 //mongoose.connect('mongodb+srv://beehive-blog:zcrbMRKyWz6fPzuq@cluster0.7dazpkm.mongodb.net/?retryWrites=true&w=majority');
 //Katharine's
-mongoose.connect('mongodb+srv://Katharine_Archer:pLAoAj08T4Dv1d4c@cluster0.7dazpkm.mongodb.net/?retryWrites=true&w=majority');
+//mongoose.connect('mongodb+srv://Katharine_Archer:pLAoAj08T4Dv1d4c@cluster0.7dazpkm.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://emiburke:Beach15149@cluster0.7dazpkm.mongodb.net/?retryWrites=true&w=majority');
+
 
 //send information with a post request
 app.post('/register', async (request,response) => { 
@@ -76,7 +78,7 @@ app.post('/login', async (request,response) => {
 //check if logged in by token inside cookies, and check if the token is valid
 app.get('/profile', (request,response) => {
     const {token} = request.cookies; //grab the token
-    jwt.verify(token, secret, {}, (err,info) => {
+    jwt.verify(token, secret, {}, async (err,info) => {
         if (err) throw err;
         response.json(info);
     });
@@ -91,7 +93,7 @@ app.post('/post',uploadMiddleware.single('file'), async (request, response) => {
     const {originalname, path} = request.file;
     const parts = originalname.split('.');
     const ext = parts[parts.length -1];
-    const newPath = path+'.'+ext
+    const newPath = path+'.'+ext;
     fs.renameSync(path, newPath);
 
     const {token} = request.cookies; //grab the token

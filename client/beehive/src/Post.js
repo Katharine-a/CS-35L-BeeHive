@@ -1,7 +1,7 @@
-import {formatISO9075} from "date-fns";
+/*import {formatISO9075} from "date-fns";
 
 export default function Post({title, summary, cover, content, createdAt, author}){
-    return(
+    return( <>
         <div className="post">
         <div className="image">
             <img src="https://cdn.pixabay.com/photo/2014/04/03/10/29/hexagons-310659_1280.png" alt=""/>
@@ -15,5 +15,6 @@ export default function Post({title, summary, cover, content, createdAt, author}
          <p className="summary">{summary}</p>
         </div>
       </div>
+      </>
     );
-}
+}*/
