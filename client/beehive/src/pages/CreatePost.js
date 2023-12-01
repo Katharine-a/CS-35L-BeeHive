@@ -13,7 +13,7 @@ const modules = {
         ['clean']
 ]
 };
-
+//this part isnt in finished tutorial
 const formats = [
 'header',
 'bold', 'italic', 'underline', 'strike', 'blockquote',
@@ -70,5 +70,6 @@ export default function CreatePost(){
                         formats={formats}/>
             <button style ={{marginTop:'5px'}}>Create Post</button>
         </form>
-    )
+    );
 }
+//this stuff is different than finished tutorial 

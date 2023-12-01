@@ -30,9 +30,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 //need to connect to mongo database
-//mongoose.connect('mongodb+srv://beehive-blog:zcrbMRKyWz6fPzuq@cluster0.7dazpkm.mongodb.net/?retryWrites=true&w=majority');
 //Katharine's
-mongoose.connect('mongodb+srv://Katharine_Archer:pLAoAj08T4Dv1d4c@cluster0.7dazpkm.mongodb.net/?retryWrites=true&w=majority');
+//mongoose.connect('mongodb+srv://Katharine_Archer:pLAoAj08T4Dv1d4c@cluster0.7dazpkm.mongodb.net/?retryWrites=true&w=majority');
 
 //send information with a post request
 app.post('/register', async (request,response) => { 
@@ -91,7 +90,7 @@ app.post('/post',uploadMiddleware.single('file'), async (request, response) => {
     const {originalname, path} = request.file;
     const parts = originalname.split('.');
     const ext = parts[parts.length -1];
-    const newPath = path+'.'+ext
+    const newPath = path+'.'+ext;
     fs.renameSync(path, newPath);
 
     const {token} = request.cookies; //grab the token
@@ -111,7 +110,10 @@ app.post('/post',uploadMiddleware.single('file'), async (request, response) => {
 });
 
 app.get('/post', async (request, response) => {
-    response.json(await Post.find().populate('author', ['username']));
+    response.json(
+        await Post.find()
+        .populate('author', ['username'])
+        );
 });
 
 app.listen(4000); //on port 4000
