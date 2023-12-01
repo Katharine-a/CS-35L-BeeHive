@@ -28,12 +28,13 @@ app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 app.use(express.json());
 //add cookie parser npm install cookie-parser
 app.use(cookieParser());
-
+app.use('/uploads', express.static(__dirname + '/uploads'));
 //need to connect to mongo database
 //Katharine's
 //mongoose.connect('mongodb+srv://Katharine_Archer:pLAoAj08T4Dv1d4c@cluster0.7dazpkm.mongodb.net/?retryWrites=true&w=majority');
 
 //send information with a post request
+
 app.post('/register', async (request,response) => { 
     const {username, password} = request.body;
     try{
@@ -113,6 +114,8 @@ app.get('/post', async (request, response) => {
     response.json(
         await Post.find()
         .populate('author', ['username'])
+        .sort({createdAt: -1})
+        .limit(20)
         );
 });
 
