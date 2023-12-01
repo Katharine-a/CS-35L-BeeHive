@@ -30,7 +30,6 @@ app.use(express.json());
 app.use(cookieParser());
 
 //need to connect to mongo database
-mongoose.connect('mongodb+srv://beehive-blog:zcrbMRKyWz6fPzuq@cluster0.7dazpkm.mongodb.net/?retryWrites=true&w=majority');
 //Katharine's
 //mongoose.connect('mongodb+srv://Katharine_Archer:pLAoAj08T4Dv1d4c@cluster0.7dazpkm.mongodb.net/?retryWrites=true&w=majority');
 
