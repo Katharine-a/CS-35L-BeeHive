@@ -1,6 +1,9 @@
 import {formatISO9075} from "date-fns";
 
+//title, summary, createdAt, author
+//title, summary, cover, content, createdAt, author
 export default function Post({title, summary, cover, content, createdAt, author}){
+    //{author.username}
     return(
         <div className="post">
         <div className="image">

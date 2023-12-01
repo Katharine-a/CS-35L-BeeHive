@@ -20,7 +20,7 @@ export default function LoginPage(){
             Response.json().then(userInfo => {
                 setUserInfo(userInfo);
                 setRedirect(true);
-        })
+        });
             
         }else {
             alert('wrong credentials');
