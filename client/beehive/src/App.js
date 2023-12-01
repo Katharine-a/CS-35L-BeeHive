@@ -1,7 +1,7 @@
 
 import './App.css';
-import Post from "./Post";
-import Header from "./Header";
+//import Post from "./Post";
+//import Header from "./Header";
 import Layout from "./Layout";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage"
